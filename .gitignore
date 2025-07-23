@@ -1,0 +1,4 @@
+# Gitignore File
+/audio_old
+/converted_tmp
+alarm_final_output
