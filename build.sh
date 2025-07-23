@@ -8,7 +8,7 @@ TMP_DIR="./converted_tmp"
 OUTPUT_FILE="alarm_final_output.wav"
 
 # Schlüsselwörter (alle lowercase)
-KEYWORDS=("probealarm" "alarm" "einsatz" "arbeit" "fbma" "fgebäudey" "fgebäude" "ptür" "rücken" "hlf" "dlk" "lf10" "rw" "pkw")
+KEYWORDS=("probealarm" "alarm" "einsatz" "gasaustritt" "gasgeruch" "arbeit" "fbma" "fgebäudey" "fgebäude" "ptür" "rücken" "hlf" "dlk" "lf10" "rw" "pkw")
 
 # Textinput (1. Parameter)
 INPUT_TEXT="$1"
