@@ -25,6 +25,29 @@ INPUT_TEXT=$(echo "$1" \
 # Erstelle temp-Ordner
 mkdir -p "$TMP_DIR"
 
+if echo "$INPUT_TEXT" | grep -qw "doku"; then
+  FILE="$AUDIO_DIR/doku.wav"
+
+  if [ ! -f "$FILE" ]; then
+    echo "Datei fehlt: $FILE"
+    exit 1
+  fi
+
+  echo "Sonderfall 'doku' erkannt – nur diese Datei wird ausgegeben."
+
+  sox -V0 "$FILE" -r 44100 -c 1 "$OUTPUT_FILE" || exit 1
+
+  ffmpeg -y -i "$OUTPUT_FILE" -ar 48000 "${OUTPUT_FILE%.wav}_tmp.wav" && \
+  mv "${OUTPUT_FILE%.wav}_tmp.wav" "$OUTPUT_FILE"
+
+  if [ -x "$FOLLOW_UP_SCRIPT" ]; then
+    "$FOLLOW_UP_SCRIPT"
+  fi
+
+  exit 0
+fi
+
+
 # Startdatei immer als erstes
 FILE_LIST=("$AUDIO_DIR/alarm-bs.wav")
 
