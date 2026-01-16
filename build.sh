@@ -1,11 +1,11 @@
 #!/bin/bash
+source .env
 
 FOLLOW_UP_SCRIPT="/home/befrog/call_speaker.sh"
 
 # Ordner mit deinen WAV-Dateien
 AUDIO_DIR="./audio"
 TMP_DIR="./converted_tmp"
-OUTPUT_FILE="alarm_final_output.wav"
 
 # Schlüsselwörter (alle lowercase)
 KEYWORDS=("doku" "probealarm" "alarm" "einsatz" "gasaustritt" "gasgeruch" "arbeit" "tragehilfe" "rüst1" "fkamin" "fbma" "fpkwy" "fkleingeb" "fpkw" "flkw" "fklein" "fgebäudey" "fgebäude" "ptür" "wachbesetzth" "wachbesetzbs" "rücken" "hlf" "dlk" "lf10" "kats" "rw" "vupkw" "vulkw" "vu-ecall" "vu" "pkw")
