@@ -82,8 +82,8 @@ echo "Füge ${#CONVERTED_FILES[@]} Dateien zusammen..."
 sox "${CONVERTED_FILES[@]}" "$OUTPUT_FILE" && echo "Erfolgreich zusammengefügt: $OUTPUT_FILE"
 
 #Ändere die Sample-Date auf 48000
-ffmpeg -i /home/befrog/audio_builder/alarm_final_output.wav -ar 48000 /home/befrog/audio_builder/alarm_final_output_tmp.wav
-mv /home/befrog/audio_builder/alarm_final_output_tmp.wav /home/befrog/audio_builder/alarm_final_output.wav
+ffmpeg -y -i "$OUTPUT_FILE" -ar 48000 "${OUTPUT_FILE%.wav}_tmp.wav" && \
+mv "${OUTPUT_FILE%.wav}_tmp.wav" "$OUTPUT_FILE"
 
 if [ $? -eq 0 ]; then
   echo "Erfolgreich zusammengefügt: $OUTPUT_FILE"
